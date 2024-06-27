@@ -73,11 +73,11 @@ Resources:
         - IpProtocol: tcp
           FromPort: '22'
           ToPort: '22'
-          CidrIp: '0.0.0.0/0'  # Permitir SSH desde cualquier IP
+          CidrIp: '0.0.0.0/0'  
         - IpProtocol: tcp
           FromPort: '80'
           ToPort: '80'
-          CidrIp: '0.0.0.0/0'  # Permitir HTTP desde cualquier IP
+          CidrIp: '0.0.0.0/0' 
       Tags:
         - Key: Name
           Value: InstanceSecurityGroup
@@ -88,12 +88,12 @@ Resources:
       InstanceType: 't2.micro'
       KeyName: !Ref KeyName
       SubnetId: !Ref PublicSubnet
-      ImageId: 'ami-033fabdd332044f06'  # AMI específica que mencionaste
+      ImageId: 'ami-033fabdd332044f06'  
       SecurityGroupIds:
         - !Ref InstanceSecurityGroup
       Tags:
         - Key: Name
-          Value: ec2lab16  # Nombre de la instancia EC2
+          Value: ec2lab16  
 
       UserData:
         Fn::Base64: !Sub |
@@ -109,7 +109,7 @@ Resources:
   MyS3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties:
-      BucketName: 'bucket-laboratorio16'  # Nombre del bucket S3
+      BucketName: 'bucket-laboratorio16'  
 
 Outputs:
   WebsiteURL:
